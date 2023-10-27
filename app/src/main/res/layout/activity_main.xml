@@ -1,18 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+package com.trabajoIntegrador.geografy
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Button
+import androidx.appcompat.widget.Toolbar
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+import com.trabajoIntegrador.geografy.DepartamentosActivity
+
+class MainActivity : AppCompatActivity() {
+
+    lateinit var btnSalta: Button
+    lateinit var btnJujuy: Button
+    lateinit var btnSanLuis: Button
+    lateinit var toolbar: androidx.appcompat.widget.Toolbar
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        var departamentosSalta: ArrayList<String> = arrayListOf("San Martín", "Rivadavia", "Salta", "Oran", "La vinia", "Metan")
+        //var departamentosJujuy: ArrayList<String> = arrayListOf("San Antonio", "San Pedro", "Santa Bárbara", "Cochinoca", "Humahuaca", "Tilcara")
+        //var departamentosSanLuis: ArrayList<String> = arrayListOf("Coronel Pringles", "Chacabuco", "General San Martin", "Belgrano", "Junín", "Ayacucho")
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = resources.getString(R.string.titulo)
+
+        btnSalta = findViewById(R.id.botonSalta)
+        //btnJujuy = findViewById(R.id.botonJujuy)
+        //btnSanLuis = findViewById(R.id.botonSanLuis)
+        btnSalta.setOnClickListener {
+
+            val departamentos = departamentosSalta.joinToString(", ")
+
+            val intentDepartamento = Intent(this, DepartamentosActivity::class.java)
+            intentDepartamento.putExtra("departamentos", departamentos)
+
+            startActivity(intentDepartamento)
+
+            finish()
+        }
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.item_agregar) {
+            TODO("Realizar Accion")
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+}
