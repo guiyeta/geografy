@@ -64,7 +64,7 @@ class SignupActivity : AppCompatActivity() {
         }
         //Agregamos funcionalidad al Boton
         btnIniciar.setOnClickListener {
-            val intentMain = Intent(this, MainActivity::class.java)
+            val intentMain = Intent(this, LoginActivity::class.java)
 
 
             // Cambiamos de pantalla

@@ -4,4 +4,8 @@
     <string name="invalid_username" />
     <string name="invalid_password" />
     <string name="titulo">Geografy</string>
+    <string name="credenciales">CREDENCIALES</string>
+    <string name="nombre_usuario">NOMBRE</string>
+    <string name="password_usuario">PASSWORD</string>
+    <string name="recordarUsuario">\t Recordar usuario</string>
 </resources>
