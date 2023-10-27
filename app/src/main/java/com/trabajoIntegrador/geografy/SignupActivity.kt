@@ -1,4 +1,4 @@
-package com.example.geografiapp
+package com.trabajoIntegrador.geografy
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
-import androidx.appcompat.widget.Toolbar
+import com.trabajoIntegrador.datos.geografy.AppDatabase
 
 
 class SignupActivity : AppCompatActivity() {
@@ -48,7 +48,7 @@ class SignupActivity : AppCompatActivity() {
             }else {
                 mensaje+= " - Datos OK"
 
-                var nuevoUsuario = Usuario(usuario, correo, pass)
+                var nuevoUsuario = com.trabajoIntegrador.datos.geografy.Usuario(usuario, correo, pass)
                 AppDatabase.getDatabase(this).usuarioDao().insertUsuario(nuevoUsuario)
 
 

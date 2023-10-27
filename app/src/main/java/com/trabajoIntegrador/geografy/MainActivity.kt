@@ -1,4 +1,4 @@
-package com.example.geografiapp
+package com.trabajoIntegrador.geografy
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,7 @@ import android.view.MenuItem
 import android.widget.Button
 import androidx.appcompat.widget.Toolbar
 
-import com.example.geografiapp.DepartamentosActivity
+import com.trabajoIntegrador.geografy.DepartamentosActivity
 
 class MainActivity : AppCompatActivity() {
 

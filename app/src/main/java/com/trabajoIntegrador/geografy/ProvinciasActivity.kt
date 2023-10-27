@@ -1,4 +1,4 @@
-package com.example.geografiapp
+package com.trabajoIntegrador.geografy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
