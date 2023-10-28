@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".InitActivity">
+
+
+    <ImageView
+        android:layout_width="353dp"
+        android:layout_height="688dp"
+        app:srcCompat="@drawable/fondo" />
+
+    <Button
+        android:id="@+id/btnIniciar"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="230dp"
+        android:layout_height="83dp"
+        android:layout_gravity="center|clip_vertical"
+        android:backgroundTint="#BC393632"
+        android:text="Iniciar"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp" />
+
+
+</FrameLayout>
