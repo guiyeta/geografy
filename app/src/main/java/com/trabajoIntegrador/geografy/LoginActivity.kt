@@ -110,7 +110,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     private fun inicio() {
-        val intentLista = Intent(this, LoginActivity::class.java)
+        val intentLista = Intent(this, MainActivity::class.java)
         startActivity(intentLista)
         finish()
     }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@android:drawable/alert_light_frame"
+    android:gravity="center">
+
+
+    <!-- Columna 1 -->
+
+    <!-- Columna 2 -->
+
+
+    <ImageView
+        android:id="@+id/IvProvincia"
+        android:layout_width="150dp"
+        android:layout_height="148dp"
+        tools:background="@color/black" />
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+        <!-- Elementos en la columna 1 -->
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="37.5dp"
+            android:text="Nombre:"
+            android:textSize="13sp" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="37.5dp"
+            android:text="Latitud:"
+            android:textSize="13sp" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="37.5dp"
+            android:text="Longitud:"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:orientation="vertical">
+
+
+        <!-- Elementos en la columna 2 -->
+
+        <TextView
+            android:id="@+id/nombreProv"
+            android:layout_width="wrap_content"
+            android:layout_height="37.5dp"
+            android:text="Buenos Aires"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/latProv"
+            android:layout_width="wrap_content"
+            android:layout_height="37.5dp"
+            android:text="-36.6769415180527"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/lonProv"
+            android:layout_width="wrap_content"
+            android:layout_height="37.5dp"
+            android:text="-60.5588319815719"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
