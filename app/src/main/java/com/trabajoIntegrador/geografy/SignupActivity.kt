@@ -78,7 +78,7 @@ class SignupActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.item_agregar) {
+        if (item.itemId == R.id.item_provincia) {
             TODO("Realizar Accion")
         }
         return super.onOptionsItemSelected(item)

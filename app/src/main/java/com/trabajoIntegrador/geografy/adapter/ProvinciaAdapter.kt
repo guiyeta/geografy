@@ -33,9 +33,6 @@ class ProvinciaAdapter(private val provincias: List<Provincia>) : RecyclerView.A
          val latitud= itemView.findViewById<TextView>(R.id.latProvincia)
           val longitud= itemView.findViewById<TextView>(R.id.lonProvincia)
 
-
-
-
         fun render(provinciaModel: Provincia) {
             nombre.text = provinciaModel.nombre
             latitud.text = provinciaModel.centroide.lat.toString()

@@ -1,5 +1,6 @@
 package com.trabajoIntegrador.geografy
 
+import android.os.Parcelable
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
@@ -10,6 +11,7 @@ data class ProvinciaJson(
     val provincias: List<Provincia>,
     val total: Int
 )
+
 
 data class Provincia(
     val centroide: Centroide,
