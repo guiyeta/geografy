@@ -48,10 +48,16 @@ class SignupActivity : AppCompatActivity() {
                 mensaje+= " - Faltan Datos"
             }else {
                 mensaje+= " - Datos OK"
-
                 var nuevoUsuario = Usuario(usuario, correo, pass)
-                AppDatabase.getDatabase(this).usuarioDao().insertUsuario(nuevoUsuario)
-
+                lifecycleScope.launch(Dispatchers.IO) {
+                    AppDatabase.getDatabase(this).usuarioDao().insertUsuario(nuevoUsuario)
+                    if (verificarUsuario(userName, password)) {
+                        runOnUiThread {
+                            Toast.makeText(this@MainActivity, "usuario registrado con éxito", Toast.LENGTH_SHORT).show()
+                            itUserNameRegister.text.clear()
+                            itPassworRegister.text.clear()
+                        }
+                    }
 
                 // Indicamos a que pantalla queremos ir
                 val intentLogin = Intent(this, LoginActivity::class.java)
@@ -61,6 +67,7 @@ class SignupActivity : AppCompatActivity() {
                 startActivity(intentLogin)
                 // Eliminamos la Activity actual para sacarla de la Pila
                 finish()
+                }
             }
         }
         //Agregamos funcionalidad al Boton
@@ -82,5 +89,12 @@ class SignupActivity : AppCompatActivity() {
             TODO("Realizar Accion")
         }
         return super.onOptionsItemSelected(item)
+    }
+    private fun verificarUsuario(user:String,password:String):Boolean {
+
+        val listaUser :List<Usuario> = AppDataBase.getDataBase(applicationContext).userDao().getAll()
+
+        return listaUser.any{ it.userName==user && it.password==password}
+        //esta funcion tendria que devolver si existe o no el usuario en db nada mas
     }
 }

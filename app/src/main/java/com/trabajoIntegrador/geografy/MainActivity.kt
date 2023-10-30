@@ -1,7 +1,12 @@
 package com.trabajoIntegrador.geografy
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.trabajoIntegrador.geografy.Provincia
@@ -19,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ProvinciaAdapter
-
+    lateinit var toolbar: Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) // Asegúrate de que el diseño tenga un RecyclerView con el ID "recyclerView"
@@ -54,5 +59,36 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = resources.getString(R.string.titulo)
+
+    }
+    fun onItemSelected(provincia: Provincia) {
+        Toast.makeText(this, provincia.nombre, Toast.LENGTH_SHORT).show()
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.item_cerrarSesion) {
+
+            val preferencias2 = getSharedPreferences(resources.getString(R.string.credenciales), MODE_PRIVATE)
+            preferencias2.edit().putString(resources.getString(R.string.nombre_usuario),null).apply()
+            preferencias2.edit().putString(resources.getString(R.string.password_usuario),null).apply()
+            var intentLogin = Intent(this, LoginActivity::class.java)
+            startActivity(intentLogin)
+
+
+            return true
+            finish()
+        }
+
+
+        return super.onOptionsItemSelected(item)
     }
 }

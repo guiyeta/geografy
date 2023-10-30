@@ -13,22 +13,6 @@
         android:id="@+id/toolbar"
         layout="@layout/primary_toolbar" />
 
-    <TextView
-        android:id="@+id/tvServicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        tools:background="@color/white" />
-
-    <EditText
-        android:id="@+id/scFilter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:singleLine="true"
-        android:imeOptions="actionDone"
-        android:hint="Buscar..." />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerMain"
@@ -38,6 +22,13 @@
         android:clickable="true"
         android:clipChildren="false"
         android:clipToPadding="true" />
+
+    <TextView
+        android:id="@+id/tvServicio"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        tools:background="@color/white" />
 
 
 </LinearLayout>

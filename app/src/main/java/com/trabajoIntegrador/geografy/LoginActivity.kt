@@ -67,19 +67,21 @@ class LoginActivity : AppCompatActivity() {
             if(nombreUsuario.isEmpty() || contraseñaUsuario.isEmpty()){
                 mensaje+= " - Faltan Datos"
             }else {
-                val usuarios: MutableList<Usuario> = getUsuarios()
+                val usuarios: List<Usuario> = getUsuarios()
                 var check = 0
 
                 for(item in usuarios){
-                    if(item.usuario == nombreUsuario && item.pass == contraseñaUsuario){
-                        mensaje+= " - DATOS CORRECTOS"
-                        check = 1
-                    }
-                    if(item.correo == nombreUsuario && item.pass != contraseñaUsuario){
+                    if(item.usuario == nombreUsuario && item.pass != contraseñaUsuario){
                         check = -1
                         mensaje+= " - CONTRASEÑA INCORRECTA"
                     }
+
+                    if(item.usuario == nombreUsuario && item.pass == contraseñaUsuario){
+                        check = 1
+                    }
+
                 }
+
 
                 if(check == 0){
                     mensaje+= " - NO HAY UN USUARIO REGISTRADO CON ESTOS DATOS"
