@@ -3,8 +3,11 @@ package com.trabajoIntegrador.geografy.endpoint
 import com.trabajoIntegrador.geografy.Provincia
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Headers
+
 interface MyApi {
 
-    @GET("/georef/api/provincias")
-    fun getCharacters(): Call<List<Provincia>>
+//    @Headers("bearertoken", "")
+    @GET("/georef/api/provincias?nombre")
+    fun getProv(): Call<List<Provincia>>
 }

@@ -1,4 +1,4 @@
-package com.trabajoIntegrador.geografy.endpoint
+package com.trabajoIntegrador.geografy.configuraciones
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

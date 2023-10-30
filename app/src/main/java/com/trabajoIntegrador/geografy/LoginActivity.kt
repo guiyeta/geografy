@@ -71,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
                 var check = 0
 
                 for(item in usuarios){
-                    if(item.correo == nombreUsuario && item.pass == contraseñaUsuario){
+                    if(item.usuario == nombreUsuario && item.pass == contraseñaUsuario){
                         mensaje+= " - DATOS CORRECTOS"
                         check = 1
                     }

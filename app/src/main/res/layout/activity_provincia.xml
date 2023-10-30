@@ -15,17 +15,18 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/IvProvincia"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:padding="4dp"
-            tools:background="@color/black" />
+        <TextView
+            android:id="@+id/tvProvincia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="TITULO"
+            tools:background="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bibliografía"
+            android:text="Descripcion"
             android:textAlignment="viewStart"
             android:textSize="16sp"
             android:textStyle="bold" />

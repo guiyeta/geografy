@@ -5,12 +5,13 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.Glide
 
 class ProvinciaActivity : AppCompatActivity() {
 
-    lateinit var im: ImageView
-    //var personajels: List<Personaje> = PersonajesProvider.personajeList // lista con personajes
+    lateinit var prov: TextView
+    var provinciaLst: List<Provincia> = ProvinciasProvider.provinciaList // lista con personajes
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,14 +20,14 @@ class ProvinciaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_provincia)
 
-        val foto = bundle?.getString("img") // obtengo los datos extras
+        val titulo = bundle?.getString("titulo") // obtengo los datos extras
 
         /* val i = personajels.indexOfFirst { it.firstName == nomPer }// busco el dato extra en la lista
          if (i != -1) {
              val image = personajels[i].imageUrl*/
-        im= findViewById(R.id.IvProvincia)
+        prov= findViewById(R.id.tvProvincia)
 
-        Glide.with(im.context).load(foto).into(im)// cargo la irl de la foto
+        //Glide.with(prov.context).load(titulo).into(prov)// cargo la irl de la foto
 
     }
 
