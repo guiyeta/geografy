@@ -7,26 +7,19 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
-import android.widget.SearchView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.widget.addTextChangedListener
-import androidx.lifecycle.LifecycleCoroutineScope
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.trabajoIntegrador.geografy.Provincia
 import com.trabajoIntegrador.geografy.adapter.ProvinciaAdapter
+import com.trabajoIntegrador.geografy.configuraciones.RetrofitClient
 import com.trabajoIntegrador.geografy.endpoint.MyApi
-import com.trabajoIntegrador.geografy.endpoint.RetrofitClient
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Response
-import kotlin.math.log
+import retrofit2.create
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,23 +28,22 @@ class MainActivity : AppCompatActivity() {
     lateinit var toolbar: Toolbar
     private  var provinciaList: MutableList<Provincia> = mutableListOf()
     private lateinit var adapter: ProvinciaAdapter
+    private lateinit var tvServicio : TextView
     /////////
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-
-
-
         setContentView(R.layout.activity_main)
 
+        val api = RetrofitClient.retrofit.create(MyApi::class.java)
         Log.d("debug","antes de la api")
 
         //comienza API
         initApi()
 
         //filtrado de personajes por sus atributos
-        filtro=findViewById(R.id.scFilter)
+        /*filtro=findViewById(R.id.scFilter)
 
 
 
@@ -66,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             adapter.updateProvincia(provinciaFiltrada)
-        }
+        }*/
 
 
 
@@ -84,9 +76,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun initApi() {
         val api = RetrofitClient.retrofit.create(MyApi::class.java)
-        val callGetCharacter = api.getCharacters()
+        val callGetProv = api.getProv()
 
-        callGetCharacter.enqueue(object : retrofit2.Callback<List<Provincia>> {
+        callGetProv.enqueue(object : retrofit2.Callback<List<Provincia>> {
 
             override fun onResponse(
                 call: Call<List<Provincia>>,
@@ -94,17 +86,17 @@ class MainActivity : AppCompatActivity() {
             ){
                 Log.d("debug", "variables del onResponse")
                 val provincia = response.body()
-                Log.d("debug", "despues de la val ${provincia?.get(1)?.lat}")
+                Log.d("debug", "despues de la val ${provincia?.get(1)?.nombre}")
                 if (provincia != null) {
 
                     provinciaList.addAll(provincia)
 
-                    Log.d("Error", "entrando al if de personajes")
+                    Log.d("Error", "entrando al if de provincias")
 
                     initRecyclerView()
 
                 } else {
-                    Log.d("debug", "personajes nulos")
+                    Log.d("debug", "provincias nulos")
                 }
 
 
@@ -127,12 +119,10 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter=adapter
 
 
-        Log.d("debug","despues inflar el recycler")
-
     }
 
     fun onItemSelected(provincia: Provincia) {
-        Toast.makeText(this, provincia.prov, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, provincia.nombre, Toast.LENGTH_SHORT).show()
 
     }
 

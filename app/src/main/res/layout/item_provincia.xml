@@ -8,17 +8,6 @@
     android:gravity="center">
 
 
-    <!-- Columna 1 -->
-
-    <!-- Columna 2 -->
-
-
-    <ImageView
-        android:id="@+id/IvProvincia"
-        android:layout_width="150dp"
-        android:layout_height="148dp"
-        tools:background="@color/black" />
-
     <LinearLayout
         android:layout_width="100dp"
         android:layout_height="wrap_content"
@@ -61,21 +50,21 @@
         <!-- Elementos en la columna 2 -->
 
         <TextView
-            android:id="@+id/nombreProv"
+            android:id="@+id/nomprov"
             android:layout_width="wrap_content"
             android:layout_height="37.5dp"
             android:text="Buenos Aires"
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/latProv"
+            android:id="@+id/lat"
             android:layout_width="wrap_content"
             android:layout_height="37.5dp"
             android:text="-36.6769415180527"
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/lonProv"
+            android:id="@+id/lon"
             android:layout_width="wrap_content"
             android:layout_height="37.5dp"
             android:text="-60.5588319815719"
