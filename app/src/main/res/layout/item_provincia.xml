@@ -15,6 +15,7 @@
         android:orientation="vertical"
         android:gravity="center">
 
+        
 
         <!-- Elementos en la columna 1 -->
         <TextView
@@ -50,21 +51,21 @@
         <!-- Elementos en la columna 2 -->
 
         <TextView
-            android:id="@+id/nomprov"
+            android:id="@+id/nomProvincia"
             android:layout_width="wrap_content"
             android:layout_height="37.5dp"
             android:text="Buenos Aires"
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/lat"
+            android:id="@+id/latProvincia"
             android:layout_width="wrap_content"
             android:layout_height="37.5dp"
             android:text="-36.6769415180527"
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/lon"
+            android:id="@+id/lonProvincia"
             android:layout_width="wrap_content"
             android:layout_height="37.5dp"
             android:text="-60.5588319815719"

@@ -13,9 +13,6 @@ import com.trabajoIntegrador.geografy.ProvinciaActivity
 import com.trabajoIntegrador.geografy.R
 
 class ProvinciaAdapter(private val provincias: List<Provincia>) : RecyclerView.Adapter<ProvinciaAdapter.ProvinciaViewHolder>() {
-    lateinit var prov: TextView
-    lateinit var lati: TextView
-    lateinit var longi: TextView
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProvinciaViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_provincia, parent, false)
         return ProvinciaViewHolder(itemView)
@@ -32,9 +29,9 @@ class ProvinciaAdapter(private val provincias: List<Provincia>) : RecyclerView.A
 
     inner class ProvinciaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val nombre= itemView.findViewById<TextView>(R.id.nomprov)
-         val latitud= itemView.findViewById<TextView>(R.id.lat)
-          val longitud= itemView.findViewById<TextView>(R.id.lon)
+        val nombre= itemView.findViewById<TextView>(R.id.nomProvincia)
+         val latitud= itemView.findViewById<TextView>(R.id.latProvincia)
+          val longitud= itemView.findViewById<TextView>(R.id.lonProvincia)
 
 
 
